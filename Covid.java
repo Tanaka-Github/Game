@@ -85,12 +85,12 @@ public class Covid {
         posX=posX+speedX;
         posY=posY+speedY;
         
-        if(posX>=860 || posX<=0)
+        if(posX>=800 || posX<=0)
         {
             speedX=-speedX;
         }
         
-        if(posY>=860|| posY<=0)
+        if(posY>= 560|| posY<=0)
         {
             speedY=-speedY;
         }

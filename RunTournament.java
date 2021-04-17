@@ -17,13 +17,15 @@ public class RunTournament {
    
     public static void main(String[]args)
     {
-      Scanner keyboard = new Scanner(System.in);    
-      //Menu System
+    Scanner keyboard = new Scanner(System.in);    
+  //Menu System
       
     int numKey; 
     boolean highScore = false;
     String name;
     String Country;
+    ProjectGame myGame = new ProjectGame();
+   
     
     System.out.println("Please state your name: ");
     
@@ -43,108 +45,110 @@ public class RunTournament {
         Country = "Not Stated";
     }
        
-    
-    System.out.println("Press 1 - to press play");
-    System.out.println
-        ("Press 2 - to press" );
-    System.out.println("Press 3 - to press display scores");
-       
+    System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+    System.out.println("\t\t Press 1 - to play the game\t\t ");
+    System.out.println("\t\t Press 2 - to display the high score\t\t " );
+    System.out.println("\t\t Press 3 - to display all scores\t\t ");
+    System.out.println("\t\t Press 4 - to display scores by the player\t\t ");
+    System.out.println("\t\t Press 5 - to display scores by  nationality\t\t ");
+    System.out.println("\t\t Press 6 - to display End time by the player\t\t ");
+
+    System.out.println("\t\t Press 10 - to Exit");
+    System.out.println("--------------------------------------------------------------------------------------------------------------");
+
     numKey =  keyboard.nextInt();
-    
+    keyboard.nextLine();
         
       Score score1 = new Score(name,0,Country);
-      Score score2 = new Score(" Jimmy ", 9 ," USA ");
-      Score score3 = new Score("Xen ",10,"China");
-      Score score4 = new Score("Edmund", 7,"UK"); 
-      Score[] scores = {score1,score2,score3,score4};
+      Score score2 = new Score("Jimmy",9,"USA");
+      Score score3 = new Score("Xen",10,"China");
+      Score score4 = new Score("Edmund",7,"UK"); 
+      Score score5 = new Score("Edmund",5,"UK");
+      Score[] scores = {score1,score2,score3,score4,score5};
       
      
     Tournament tournamentScore = new Tournament("Covid Tournament",100000, 3, scores, 5);
     
-    // System.out.println(tournamentScore.toString());
-      
-    
+   // System.out.println(tournamentScore.toString());    
    // if(numKey == 1)
-   // {
-      
-    // tournamentScore.NextState();
-  
-    
-    
-    
-    //}
+   // {      
+   // tournamentScore.NextState();   
+   //}
      
     
-  while (numKey == 3 ) 
+  while (numKey != 10) 
     {
-        highScore = false;
-        
-          if (highScore == false)
-          {
-          System.out.println("Press 1 - to press All Scores");
-          System.out.println("Press 2 - to display Top Score");
-          System.out.println("Press 3 - to press to go back");
-          
-          numKey =  keyboard.nextInt();    
-          }
-        
-          
-    /////////////////////////////////////////////////////////////////////    
-        
-        if (numKey == 1) 
-        {
-//              Score[] sortedScores = tournamentScore.sortedValues();
-//              
-//              for(int i=0; i<sortedScores.length; i++)
-//              {
-//                  System.out.println(sortedScores[i].toString());
-//              }
-            tournamentScore.sortedValues();
-            
-            
-            
-            
-              System.out.println("Press 3 - to press to go back");
-               numKey =  keyboard.nextInt();
+      if (numKey == 1) 
+      {
                
-                if (numKey == 3)
-               {
-                highScore = false;
-               }
-              
-              
-        }
-    
-    /////////////////////////////////////////////////
-/////////////////////
+            
+            
+            
+      }               
         if(numKey == 2)
         { 
-           highScore = true;
-             
-            if (highScore == true)
-             {
-               System.out.println("Top Score is: " + tournamentScore.maxValue());
-               System.out.println("Press 3 - to press to go back");
-               numKey =  keyboard.nextInt();
-               
-                if (numKey == 3)
-               {
-                highScore = false;
-               }
-               
-             }
-            
-            
+            System.out.println("Top Score is: "+ tournamentScore.maxValue());                         
+         }
+        
+        if (numKey == 3) 
+        {
+            System.out.println("\n--------------------------------------------------------------------------------------------------------------");
+            System.out.println("\t\t RANKING" );
+            System.out.println("\n--------------------------------------------------------------------------------------------------------------");
+
+            tournamentScore.sortedValues();
+        }
+        
+        if (numKey == 4) 
+        {
+          //System.out.println("    ");
+            System.out.println("--------------------------------------------------------------------------------------------------------------");
+            System.out.println("\t\t Please state the name of a player to display score: \t \t " );
+            System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+            String playerName = keyboard.nextLine();
+            System.out.println("--------------------------------------------------------------------------------------------------------------");
+            tournamentScore.PlayerScore(playerName);
+        }
+        
+         if (numKey == 5) 
+        {
+            //System.out.println("    ");
+            System.out.println("--------------------------------------------------------------------------------------------------------------");
+            System.out.println("\t \t Please state the nationality to display score: \t \t " );
+            System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+            String playerName = keyboard.nextLine();
+            System.out.println("--------------------------------------------------------------------------------------------------------------");
+
+            tournamentScore.nationalityScore(playerName);
             
         }
         
         
+      
+       if (numKey == 6){                       
+           myGame.EndTime();
+           
+           String playerName = keyboard.nextLine();
+            
+          
+           
+        }
         
     /////////////////////////////////////////////////////////////////////    
-        
-        
-        
-        
+    System.out.println("\n--------------------------------------------------------------------------------------------------------------");
+    System.out.println("\n"+"Press 1 - to play the game");
+    System.out.println("Press 2 - to display the high score" );
+    System.out.println("Press 3 - to display all scores");
+    System.out.println("Press 4 - to display scores by the player");
+    System.out.println("Press 5 - to display End-time");
+    System.out.println("Press 10 - to Exit"); 
+    System.out.println("\n--------------------------------------------------------------------------------------------------------------");
+
+    numKey =  keyboard.nextInt();   
+    keyboard.nextLine();   
      
         
         

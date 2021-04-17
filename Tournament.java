@@ -15,9 +15,8 @@ import java.util.Collections;
  */
 
 
-
 public class Tournament {
-  //Display the scores from highest to lowest including player name, nationality and age.
+  // Display the scores from highest to lowest including player name, nationality and age.
 
     private String tournamentName; 
     private int prizefund;  
@@ -43,10 +42,6 @@ public class Tournament {
         this.numberOfTrys = numberOfTrys;
     }
 
-
-
- 
-    
     
     
     
@@ -82,10 +77,7 @@ public class Tournament {
     public void setTournamentName(String tournamentName) {
         this.tournamentName = tournamentName;
     }
-
-    
-    
-    
+   
 
     public void setPrizefund(int prizefund) {
         this.prizefund = prizefund;
@@ -99,60 +91,63 @@ public class Tournament {
         this.scores = scores;
     }
 
+//    @Override
+//    public String toString() {
+//        
+//        String scoresString = "";
+//        
+//        for(int i=0; i < scores.length; i++)
+//        {
+//          scoresString += scores[i].toString() + "";
+//        }
+//        
+//        return "Tournament{" + " tournamentName = " + tournamentName + ", prizefund = " + prizefund + ", NumberOfLevels = " + NumberOfLevels + ", scores = " + scoresString + ", numberOfTrys = " + numberOfTrys + '}';
+//    }
+
     @Override
     public String toString() {
-        
-        String scoresString = "";
-        
-        for(int i=0; i < scores.length; i++)
-        {
-          scoresString += scores[i].toString() + "";
-        }
-        
-        return "Tournament{" + " tournamentName = " + tournamentName + ", prizefund = " + prizefund + ", NumberOfLevels = " + NumberOfLevels + ", scores = " + scoresString + ", numberOfTrys = " + numberOfTrys + '}';
-    }
- 
-    
+        return "Tournament{" + "tournamentName=" + tournamentName + ", prizefund=" + prizefund + ", NumberOfLevels=" + NumberOfLevels + ", scores=" + scores + ", numberOfTrys=" + numberOfTrys + '}';
+    }   
      //Q5b
       public double maxValue()
-    {
+      {
       double maxVal = 0;
       
       for (int i = 0; i < scores.length; i++){
           
-         if (scores[i].getScore() > maxVal) {
+         if (scores[i].getScore() > maxVal) 
+         {
               maxVal = scores[i].getScore();
-          }
+         }
          
       }
-      return maxVal;
-    }
+          return maxVal;
+      }
       
       /////////////////////////////////////////////////////////////////////////
       
       public void sortedValues()
       {
-//        int i = 0;
+        int j = 0;
 //         
          
+          // Arrays.sort(scores,Collections.reverseOrder());
            Arrays.sort(scores);
-          for (int i = 0; i < scores.length; i++) {
+           
+          for (int i = 0; i < scores.length ;i++) {
                 
-        
-            System.out.println(scores.toString());
-          }
+          //  if (scores[i].getScore() > j){
+          // System.out.println(Arrays.toString(scores));
+            
+            System.out.println(scores[i].toString());
+           //}
 //       
 //         return scores;
           
-          
-        //  Collections.reverse(scores);
+         
       }
-                   
-     
-     
-
-    
-    
+          
+      }       
    
      public int[] getTopScore (int[] values)
     {
@@ -175,6 +170,35 @@ public class Tournament {
         }
     }
     
+    public void PlayerScore(String nameIn)
+    {
+        
+      for (int i = 0; i < scores.length; i++) {
+         
+          
+           // System.out.println(Arrays.toString(scores));
+           if(scores[i].getPlayerName().equals(nameIn) )
+           {
+            System.out.println("\n \t \t"+scores[i].toString() + "\t \t");
+           
+           }
+          }
     
+    }
     
+    public void nationalityScore(String nationalIn)
+    {
+        
+      for (int i = 0; i < scores.length; i++) {
+         
+          
+        // System.out.println(Arrays.toString(scores));
+           if(scores[i].getPlayerNationality().equals(nationalIn) )
+           {
+              System.out.println("\n \t \t"+scores[i].toString() + "\t \t");
+           
+           }
+          }
+    
+    }
 }
