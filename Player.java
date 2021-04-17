@@ -18,13 +18,23 @@ public class Player {
     private double  posX;
     private double  posY;
     private double speedX;
+    private double speedY;
     private boolean alive;
 
    //Constructor
+
+    public Player(double posX, double posY) {
+        this.posX = posX;
+        this.posY = posY;
+    }
+    
+    
+    
    public Player(){ 
-     this.posX=300; 
+     this.posX=375;
      this.posY=100;
-     this.speedX=10;
+     this.speedX=35;
+     this.speedY=35;
      this.alive = true;
    
    }
@@ -44,6 +54,11 @@ public class Player {
    public double getspeedX()
    {
        return speedX;
+   }
+
+   public double getspeedY() 
+   {
+       return speedY;
    }
    
    public boolean isAlive()
@@ -68,16 +83,24 @@ public class Player {
    {
        this.speedX = speedX;
    }
+
+   public void setspeedY(double speedY)
+   {
+       this.speedY = speedY;
+   }
    
    public void setAlive(boolean alive)
    {
        this.alive = alive;
    }
-   
-   @Override
+
+    @Override
     public String toString() {
-        return "Player{" + "posX=" + posX + ", posY=" + posY + ", speedX=" + speedX + ", alive=" + alive + '}';
+        return "Player{" + "posX=" + posX + ", posY=" + posY + ", speedX=" + speedX + ", speedY=" + speedY + ", alive=" + alive + '}';
     }
+   
+  
+   
     
    
    //Class Methods
@@ -91,4 +114,6 @@ public class Player {
      
           
    }
+
+    
 }
